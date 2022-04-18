@@ -24,6 +24,7 @@
  DEALINGS IN THE SOFTWARE.
  */
 
+
 #include <iostream>
 #include <algorithm>
 #include<assert.h>
@@ -73,20 +74,22 @@ struct book {
 		if (substring.size() > book_name.size()) // prefix name greater than book name
 			return false;
 
-		for(int i=0;i<(int) book_name.size()-(int) substring.size()+1;i++) {
+		for (int i = 0; i < (int) book_name.size() - (int) substring.size() + 1;
+				i++) {
 
-			bool is_match=true;
+			bool is_match = true;
 
-			for(int j=0;j<(int)substring.size()&& is_match;j++) {
-				if(substring[j]!=book_name[i+j])
-					is_match=false;
+			for (int j = 0; j < (int) substring.size() && is_match; j++) {
+				if (substring[j] != book_name[i + j])
+					is_match = false;
 			}
-			if(is_match)
+			if (is_match)
 				return true;
 		}
 		return false;
 	}
 
+	//borrow and return functionalities
 	bool user_borrow_copy(int user_id) {
 
 		if (total_quantity - total_borrowed == 0)
@@ -160,7 +163,7 @@ struct user {
 
 			if (borrowed_books_ids[i] == book_id)
 				for (int j = i + 1; j < len; j++) //left shift to remove the first element in the borrowed books array
-					borrowed_books_ids[i - 1] = borrowed_books_ids[i];
+					borrowed_books_ids[j - 1] = borrowed_books_ids[i];
 			removed = true; //first element removed sucessfully
 			len--; //decrease total books by one
 			break;
@@ -205,13 +208,13 @@ struct library_system {
 			if (admin_choice == 1)
 				add_new_book();
 			else if (admin_choice == 2)
-				search_books();
-			else if (admin_choice == 3)
-				list_books_by_id();
-			else if (admin_choice == 4)
-				list_books_by_name();
-			else if (admin_choice == 5)
 				add_new_user();
+			else if (admin_choice == 3)
+				search_books();
+			else if (admin_choice == 4)
+				list_books_by_id();
+			else if (admin_choice == 5)
+				list_books_by_name();
 			else if (admin_choice == 6)
 				list_users_by_id();
 			else if (admin_choice == 7)
@@ -267,12 +270,12 @@ struct library_system {
 
 		while (choice == -1) {
 			cout << "\n1) Add new book\n"
-					"2) Search books\n"
-					"3) List books ordered by id\n"
-					"4) List books ordered by name\n"
-					"5) Add new user\n"
-					"6) List users by id\n"
-					"7) List users by name\n"
+					"2) Add new user\n"
+					"3) Search books\n"
+					"4) List books ordered by id\n"
+					"5) List books ordered by name\n"
+					"6) List users ordered by id\n"
+					"7) List users ordered by name\n"
 					"8) List users borrowed a specific book\n"
 					"9) Back\n"
 					"10)Exit\n"
@@ -292,9 +295,9 @@ struct library_system {
 		int choice = -1;
 
 		while (choice == -1) {
-			cout << "1) \nSearch books\n"
-					"2) Borrow book\n"
-					"3) Return book\n"
+			cout << "\n1) Borrow book\n"
+					"2) Return book\n"
+					"3) Search books\n"
 					"4) Back\n"
 					"5) Exit\n"
 
@@ -303,6 +306,7 @@ struct library_system {
 
 			if (!(1 <= choice && choice <= 6)) {
 				cout << "\ninvalid choice. Try again!\n";
+				choice=-1;
 			}
 
 		}
@@ -325,7 +329,7 @@ struct library_system {
 		int cnt = 0; // if counter doesn't increase then there is no book with such name
 		for (int i = 0; i < total_books; i++) {
 			if (books[i].is_substring(substring)) {
-				cout <<"\n"<< books[i].book_name << "\n";
+				cout << "\n" << books[i].book_name << "\n";
 				cnt++;
 			}
 
@@ -400,11 +404,13 @@ struct library_system {
 		//check if book name valid or not
 		int book_idx = find_book_id_by_book_name(book_name);
 		if (book_idx == -1) {
-			cout << "\ninvalid book name. try again!\n"; return;
+			cout << "\ninvalid book name. try again!\n";
+			return;
 		}
 		//check if there is borrowed copies from a specific book
 		if (books[book_idx].total_borrowed == 0) {
-			cout << "\nNo borrowed copies yet!\n"; return;
+			cout << "\nNo borrowed copies yet!\n";
+			return;
 		}
 
 		//print users borrowed a specific book
@@ -513,3 +519,4 @@ int main() {
 	return 0;
 
 }
+
