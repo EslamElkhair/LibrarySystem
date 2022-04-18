@@ -234,11 +234,11 @@ struct library_system {
 			int user_choice = user_menu();
 
 			if (user_choice == 1)
-				search_books();
-			else if (user_choice == 2)
 				borrow_book();
-			else if (user_choice == 3)
+			else if (user_choice == 2)
 				return_book();
+			else if (user_choice == 3)
+				search_books();
 			else if (user_choice == 4) {
 				run();
 				main_choice = 3;
