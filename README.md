@@ -11,7 +11,7 @@ To Run library management system:
 ## Description 
 Library management system is a classical system designed specially for public libraries. it helps in maintaining all information about books such as book name, book id, number of copeis availbable and also borrowed/returned copies of the book. 
 
-### Concept (further versions!)
+### System Concept (further versions!)
 
 **The system has two types of users:** 
 
@@ -21,7 +21,7 @@ Library management system is a classical system designed specially for public li
 * **User Dashboard**
    * The main system users are **students**. they can have functionalies such that  ask for borrow/return requests and wait the admin to accept their requests 
 
-### Features (version 0.0)
+### System Features (version 0.0)
 
 **The Admin has many Features as described below:**
 
