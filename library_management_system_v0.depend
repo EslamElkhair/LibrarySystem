@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1650294900 source:/home/eslamelkhair/Workspace/codeblocks/library_management_system_v0/main.cpp
+	<iostream>
+	<algorithm>
+	<assert.h>
+
