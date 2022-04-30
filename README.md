@@ -6,7 +6,7 @@ To Run library management system:
 
 2. install  [codeBlocks](https://www.codeblocks.org/)  and Run the **.cpb** file on the IDE
 
-3. Feel free to test all the project functionalities and send me [E-mail](esotech3@gmail.com) if there is something wrong.
+3. Feel free to test all the project functionalities and send me <a href="mailto:esotech3@gmail.com">E-mail</a>  if there is something wrong.
 
 ## Description 
 Library management system is a classical system designed specially for public libraries. it helps in maintaining all information about books such as book name, book id, number of copeis availbable and also borrowed/returned copies of the book. 
@@ -60,3 +60,8 @@ Every system needs data. The core data here is the book and users.
 ## Demo 
 
 For the project demo, visit Link : https://youtu.be/eRpVViboXzc
+
+![gif](https://user-images.githubusercontent.com/63516927/163903559-f8072d57-f0f0-4fd0-b4df-b346b9f79781.gif)
+
+
+
